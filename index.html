@@ -6,5 +6,106 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <h1 id="appheader">Mark Calculator</h1>
+    <div style="text-align:center;">
+      <button id="rowbut" onclick="addRow()">Add Row</button>
+      <button id="rowbut" onclick="getAverage()">Calculate Average</button><br />
+      <button id="rowbut" onclick="saveData()">Save</button>
+      <button id="rowbut" onclick="loadData()">Load</button>
+      <button id="rowbut" onclick="clearTable()">Reset</button>
+    </div>
+
+    <table id="allmarks">
+      <thead>
+        <tr id="tableheader">
+          <th>Knowledge/Understanding</th>
+          <th>Thinking</th>
+          <th>Communication</th>
+          <th>Application</th>
+        </tr>
+        <tr id="tableheader">
+          <th>Section Weight<input type="text" class="sw" id="data" /></th>
+          <th>Section Weight<input type="text" class="sw" id="data" /></th>
+          <th>Section Weight<input type="text" class="sw" id="data" /></th>
+          <th>Section Weight<input type="text" class="sw" id="data" /></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="alldata">
+          <td>
+            <!--Knowledge-->
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Mark</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><input type="text" id="data" /></td>
+                  <td><input type="text" id="data" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <!--Thinking-->
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Mark</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><input type="text" id="data" /></td>
+                  <td><input type="text" id="data" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <!--Communication-->
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Mark</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><input type="text" id="data" /></td>
+                  <td><input type="text" id="data" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <!--Application-->
+            <table id="table">
+              <thead>
+                <tr>
+                  <th>Mark</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><input type="text" id="data" /></td>
+                  <td><input type="text" id="data" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

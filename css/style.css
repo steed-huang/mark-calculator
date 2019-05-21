@@ -1,0 +1,37 @@
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  height: 25px;
+  text-align: center;
+}
+
+#appheader {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5px;
+}
+#rowbut {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+#allmarks {
+  width: 100%;
+}
+#alldata {
+  vertical-align: top;
+}
+#table {
+  width: 100%;
+}
+#tableheader {
+  margin-bottom: 100px;
+}
+#data {
+  text-align: center;
+  width: 95%;
+}
+.sw {
+  margin-bottom: 5px;
+}
