@@ -27,4 +27,24 @@ function saveData() {}
 
 function loadData() {}
 
-function clearTable() {}
+function clearTable() {
+  for (let i = 0; i < 4; i++) {
+    let tableRef = document
+      .getElementById("allmarks")
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tbody")[i];
+    while (tableRef.firstChild) {
+      tableRef.removeChild(tableRef.firstChild); // deletes all TR
+    }
+  }
+  for (let i = 0; i < 4; i++) {
+    let swRef = document
+      .getElementById("allmarks")
+      .getElementsByTagName("thead")[0]
+      .getElementsByTagName("tr")[1]
+      .getElementsByTagName("th")
+      [i].getElementsByTagName("input")[0];
+    swRef.value = "";
+  }
+  addRow();
+}
