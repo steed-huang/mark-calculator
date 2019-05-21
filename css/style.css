@@ -3,35 +3,58 @@ th,
 td {
   border-collapse: collapse;
   border: 1px solid black;
-  height: 25px;
+  height: 5vh;
   text-align: center;
 }
 
 #appheader {
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 0.5vh;
+  font-size: 2.5vw;
 }
 #rowbut {
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-top: 0.5vh;
+  margin-bottom: 1vh;
+  font-size: 1vw;
 }
 #allmarks {
   width: 100%;
+  margin-top: 1.5vh;
 }
 #alldata {
   vertical-align: top;
+  font-size: 1.4vw;
 }
 #table {
   width: 100%;
 }
 #tableheader {
-  margin-bottom: 100px;
+  font-size: 1.5vw;
+}
+#sectionweight {
+  font-size: 1.2vw;
 }
 #data {
   text-align: center;
   width: 95%;
 }
+
 .sw {
-  margin-bottom: 5px;
+  margin-bottom: 1vh;
+}
+
+.ku {
+  background-color: #fffeab;
+}
+
+.t {
+  background-color: #bffea3;
+}
+
+.c {
+  background-color: #aeafff;
+}
+.a {
+  background-color: #ffd490;
 }
