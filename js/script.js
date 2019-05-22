@@ -65,7 +65,7 @@ function getData() {
       [i].getElementsByTagName("input")[0];
     marks[i][2] = Number(secWeight.value);
   }
-  getResult(getAverage(marks));
+  return marks;
 }
 
 function getAverage(marks) {
@@ -74,7 +74,7 @@ function getAverage(marks) {
   let secAv = [0, 0, 0, 0];
   let avAcc = 0;
   for (let i = 0; i < 4; i++) {
-    for (let z = 0; z < marks[0][0].length; z++) {
+    for (let z = 0; z < marks[i][0].length; z++) {
       secProd[i] += marks[i][0][z] * marks[i][1][z];
       weightSum[i] += marks[i][1][z];
     }
@@ -88,9 +88,41 @@ function getAverage(marks) {
   return [secAv, avAcc / 100];
 }
 
-function saveData() {}
+function saveData() {
+  let storage = window.localStorage;
+  storage.setItem("marks", JSON.stringify(getData()));
+}
 
-function loadData() {}
+function loadData() {
+  let storage = window.localStorage;
+  let marks = JSON.parse(storage["marks"]);
+
+  clearTable();
+  for (let i = 0; i < marks[0][0].length - 1; i++) {
+    addRow();
+  }
+
+  for (let i = 0; i < 4; i++) {
+    let inputRef = document
+      .getElementById("allmarks")
+      .getElementsByTagName("tbody")[0]
+      .getElementsByTagName("tbody")
+      [i].getElementsByTagName("input");
+    for (let z = 0; z < marks[0][0].length; z++) {
+      inputRef[z * 2].value = marks[i][0][z];
+      inputRef[z * 2 + 1].value = marks[i][1][z];
+    }
+  }
+  for (let i = 0; i < 4; i++) {
+    let secWeight = document
+      .getElementById("allmarks")
+      .getElementsByTagName("thead")[0]
+      .getElementsByTagName("tr")[1]
+      .getElementsByTagName("th")
+      [i].getElementsByTagName("input")[0];
+    secWeight.value = marks[i][2];
+  }
+}
 
 function clearTable() {
   for (let i = 0; i < 4; i++) {
