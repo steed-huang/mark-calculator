@@ -22,19 +22,19 @@ function addRow() {
 function getResult(score) {
   alert(
     "K/U: " +
-      score[0][0].toFixed(4) +
+      score[0][0] +
       "%\n" +
       "Think: " +
-      score[0][1].toFixed(4) +
+      score[0][1] +
       "%\n" +
       "Comm: " +
-      score[0][2].toFixed(4) +
+      score[0][2] +
       "%\n" +
       "App: " +
-      score[0][3].toFixed(4) +
+      score[0][3] +
       "%\n\n" +
       "Total Average: " +
-      score[1].toFixed(4) +
+      score[1] +
       "%\n"
   );
 }
@@ -73,6 +73,8 @@ function getAverage(marks) {
   let weightSum = [0, 0, 0, 0];
   let secAv = [0, 0, 0, 0];
   let avAcc = 0;
+  let secWAcc = 0;
+  let average = "none";
   for (let i = 0; i < 4; i++) {
     for (let z = 0; z < marks[i][0].length; z++) {
       secProd[i] += marks[i][0][z] * marks[i][1][z];
@@ -80,12 +82,20 @@ function getAverage(marks) {
     }
   }
   for (let i = 0; i < 4; i++) {
-    secAv[i] = secProd[i] / weightSum[i];
+    if (weightSum[i] == 0) {
+      secAv[i] = "none";
+    } else secAv[i] = (secProd[i] / weightSum[i]).toFixed(4);
   }
   for (let i = 0; i < 4; i++) {
-    avAcc += secAv[i] * marks[i][2];
+    if (secAv[i] != "none") {
+      avAcc += secAv[i] * marks[i][2];
+      secWAcc += marks[i][2];
+    }
   }
-  return [secAv, avAcc / 100];
+  if (secWAcc != 0) {
+    average = (avAcc / secWAcc).toFixed(4);
+  }
+  return [secAv, average];
 }
 
 function saveData() {
