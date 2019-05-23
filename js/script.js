@@ -39,6 +39,18 @@ function getResult(score) {
   );
 }
 
+function getMark(grade) {
+  return (grade[0] / grade[1]) * 100;
+}
+
+function getRaw(input) {
+  if (input.indexOf("/") != -1) {
+    let mark = Number(input.substr(0, input.indexOf("/")));
+    let total = Number(input.substr(input.indexOf("/") + 1, input.length - 1));
+    return [mark, total];
+  } else return false;
+}
+
 function getData() {
   let marks = [[[], [], 25], [[], [], 25], [[], [], 25], [[], [], 25]];
   for (let i = 0; i < 4; i++) {
@@ -50,9 +62,13 @@ function getData() {
 
     for (let z = 0; z < data.length; z++) {
       if (z % 2 == 0) {
-        marks[i][0].push(Number(data[z].value));
+        if (getRaw(data[z].value)) {
+          marks[i][0].push(getMark(getRaw(data[z].value)));
+        } else marks[i][0].push(Number(data[z].value));
       } else {
-        marks[i][1].push(Number(data[z].value));
+        if (getRaw(data[z].value)) {
+          marks[i][1].push(getMark(getRaw(data[z].value)));
+        } else marks[i][1].push(Number(data[z].value));
       }
     }
   }
@@ -84,7 +100,7 @@ function getAverage(marks) {
   for (let i = 0; i < 4; i++) {
     if (weightSum[i] == 0) {
       secAv[i] = "none";
-    } else secAv[i] = (secProd[i] / weightSum[i]).toFixed(4);
+    } else secAv[i] = (secProd[i] / weightSum[i]).toFixed(5);
   }
   for (let i = 0; i < 4; i++) {
     if (secAv[i] != "none") {
@@ -93,7 +109,7 @@ function getAverage(marks) {
     }
   }
   if (secWAcc != 0) {
-    average = (avAcc / secWAcc).toFixed(4);
+    average = (avAcc / secWAcc).toFixed(5);
   }
   return [secAv, average];
 }
